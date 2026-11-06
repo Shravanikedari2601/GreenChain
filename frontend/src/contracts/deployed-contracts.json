@@ -1,0 +1,1884 @@
+{
+  "network": {
+    "name": "hardhat",
+    "chainId": 31337,
+    "rpcUrl": "http://127.0.0.1:8545"
+  },
+  "contracts": {
+    "CarbonCreditToken": {
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "retiree",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "certificateId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "beneficiary",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "reason",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "CreditsRetired",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "Paused",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousRegistry",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newRegistry",
+              "type": "address"
+            }
+          ],
+          "name": "RegistryUpdated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "Unpaused",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "allowance",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "approve",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "balanceOf",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "decimals",
+          "outputs": [
+            {
+              "internalType": "uint8",
+              "name": "",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "certificateId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "getRetirementCertificate",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "certificateId",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "address",
+                  "name": "retiree",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "beneficiary",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "retirementReason",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "timestamp",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "blockNumber",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct CarbonCreditToken.RetirementRecord",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "mint",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "name",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "pause",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "paused",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "registryContract",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "reason",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "beneficiary",
+              "type": "string"
+            }
+          ],
+          "name": "retire",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "certificateId",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "retirementCertificateList",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "name": "retirements",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "certificateId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "address",
+              "name": "retiree",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "beneficiary",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "retirementReason",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "blockNumber",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_registry",
+              "type": "address"
+            }
+          ],
+          "name": "setRegistryContract",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "symbol",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalCertificatesIssued",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalRetiredCredits",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalSupply",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transfer",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transferFrom",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "transferOwnership",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "unpause",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+    },
+    "CarbonCreditRegistry": {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_admin",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "CreditsMinted",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "auditor",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "enum CarbonCreditRegistry.VerificationStatus",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "verifiedCredits",
+              "type": "uint256"
+            }
+          ],
+          "name": "ProjectAudited",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "developer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "enum CarbonCreditRegistry.ProjectType",
+              "name": "projectType",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint16",
+              "name": "vintageYear",
+              "type": "uint16"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "aiRiskScore",
+              "type": "uint8"
+            }
+          ],
+          "name": "ProjectRegistered",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "numberOfTrees",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "species",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "landAreaHectares",
+              "type": "uint256"
+            }
+          ],
+          "name": "TreeDataLogged",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "verifier",
+              "type": "address"
+            }
+          ],
+          "name": "VerifierAdded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "verifier",
+              "type": "address"
+            }
+          ],
+          "name": "VerifierRemoved",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "MAX_TREES_PER_HECTARE",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "MIN_TREES_PER_HECTARE",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_verifier",
+              "type": "address"
+            }
+          ],
+          "name": "addVerifier",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "admin",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "approve",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "approvedCreditsMetricTons",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "finalAiRiskScore",
+              "type": "uint8"
+            }
+          ],
+          "name": "auditAndVerifyProject",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "numberOfTrees",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "kgPerTreePerYear",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "creditingYears",
+              "type": "uint256"
+            }
+          ],
+          "name": "calculateEstimatedCredits",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "metricTons",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getProject",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "developer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "country",
+                  "type": "string"
+                },
+                {
+                  "internalType": "enum CarbonCreditRegistry.ProjectType",
+                  "name": "projectType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint16",
+                  "name": "vintageYear",
+                  "type": "uint16"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "aiRiskScore",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "enum CarbonCreditRegistry.VerificationStatus",
+                  "name": "status",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "verifiedCredits",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "mintedCredits",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "ipfsEvidenceHash",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "gpsCoordinates",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "auditor",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "submissionTimestamp",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "verificationTimestamp",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "exists",
+                  "type": "bool"
+                }
+              ],
+              "internalType": "struct CarbonCreditRegistry.Project",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getTreeData",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "numberOfTrees",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "species",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "landAreaHectares",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "plantingTimestamp",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "annualSequestrationKgPerTree",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "densityVerified",
+                  "type": "bool"
+                }
+              ],
+              "internalType": "struct CarbonCreditRegistry.TreeData",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "isVerifier",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountToMint",
+              "type": "uint256"
+            }
+          ],
+          "name": "issueCredits",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "projectCount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "projectTreeData",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "numberOfTrees",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "species",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "landAreaHectares",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "plantingTimestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "annualSequestrationKgPerTree",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "densityVerified",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "projects",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "developer",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "location",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "country",
+              "type": "string"
+            },
+            {
+              "internalType": "enum CarbonCreditRegistry.ProjectType",
+              "name": "projectType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint16",
+              "name": "vintageYear",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint8",
+              "name": "aiRiskScore",
+              "type": "uint8"
+            },
+            {
+              "internalType": "enum CarbonCreditRegistry.VerificationStatus",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "verifiedCredits",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "mintedCredits",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "ipfsEvidenceHash",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "gpsCoordinates",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "auditor",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "submissionTimestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "verificationTimestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "location",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "country",
+                  "type": "string"
+                },
+                {
+                  "internalType": "enum CarbonCreditRegistry.ProjectType",
+                  "name": "projectType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint16",
+                  "name": "vintageYear",
+                  "type": "uint16"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "aiRiskScore",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "string",
+                  "name": "ipfsEvidenceHash",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "gpsCoordinates",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct CarbonCreditRegistry.ProjectRegistrationInput",
+              "name": "input",
+              "type": "tuple"
+            }
+          ],
+          "name": "registerProject",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "name": "registeredGpsHashes",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_verifier",
+              "type": "address"
+            }
+          ],
+          "name": "removeVerifier",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_tokenAddress",
+              "type": "address"
+            }
+          ],
+          "name": "setTokenContract",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "numberOfTrees",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "species",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "landAreaHectares",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "annualSequestrationKgPerTree",
+              "type": "uint256"
+            }
+          ],
+          "name": "submitTreeData",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "tokenContract",
+          "outputs": [
+            {
+              "internalType": "contract ICarbonCreditToken",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+    },
+    "CarbonMarketplace": {
+      "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_creditToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_feeRecipient",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "buyer",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "totalCostWei",
+              "type": "uint256"
+            }
+          ],
+          "name": "CreditsPurchased",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "buyer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "certificateId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "beneficiary",
+              "type": "string"
+            }
+          ],
+          "name": "DirectRetirementCompleted",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            }
+          ],
+          "name": "ListingCancelled",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "pricePerCreditWei",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "vintage",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "projectName",
+              "type": "string"
+            }
+          ],
+          "name": "ListingCreated",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "beneficiary",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "retirementReason",
+              "type": "string"
+            }
+          ],
+          "name": "buyAndRetireCredits",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "certificateId",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "buyCredits",
+          "outputs": [],
+          "stateMutability": "payable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            }
+          ],
+          "name": "cancelListing",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "creditToken",
+          "outputs": [
+            {
+              "internalType": "contract IERC20Carbon",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "feeBasisPoints",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "feeRecipient",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            }
+          ],
+          "name": "getListing",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "listingId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "projectId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "seller",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amountAvailable",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "pricePerCreditWei",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "vintage",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "projectName",
+                  "type": "string"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "active",
+                  "type": "bool"
+                }
+              ],
+              "internalType": "struct CarbonMarketplace.Listing",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pricePerCreditWei",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "vintage",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "projectName",
+              "type": "string"
+            }
+          ],
+          "name": "listCredits",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "listingCounter",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "listings",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "listingId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountAvailable",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pricePerCreditWei",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "vintage",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "projectName",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "active",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_feeBasisPoints",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "_recipient",
+              "type": "address"
+            }
+          ],
+          "name": "setFee",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "deployedAt": "2026-11-05T09:55:40.757Z"
+}

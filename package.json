@@ -1,0 +1,19 @@
+{
+  "name": "greenchain-carbon-credit-dapp",
+  "version": "1.0.0",
+  "description": "End-to-End Decentralized Carbon Credit App with AI Verification and Ethereum Testnet Deployment",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.7",
+    "hardhat": "^2.22.17"
+  }
+}
+

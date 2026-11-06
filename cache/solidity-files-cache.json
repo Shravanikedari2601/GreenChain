@@ -1,0 +1,118 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "D:\\documents study\\antigravity IDE\\contracts\\CarbonCreditRegistry.sol": {
+      "lastModificationDate": 1793872336552,
+      "contentHash": "c17a879fa69d7eb5b1466f3fd0c90b28",
+      "sourceName": "contracts/CarbonCreditRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "CarbonCreditRegistry",
+        "ICarbonCreditToken"
+      ]
+    },
+    "D:\\documents study\\antigravity IDE\\contracts\\CarbonCreditToken.sol": {
+      "lastModificationDate": 1793871942557,
+      "contentHash": "e70a960bde1b5793e6cce1de7000a365",
+      "sourceName": "contracts/CarbonCreditToken.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "CarbonCreditToken"
+      ]
+    },
+    "D:\\documents study\\antigravity IDE\\contracts\\CarbonMarketplace.sol": {
+      "lastModificationDate": 1793871994009,
+      "contentHash": "7bdd22961e0e1322b2af70c58d13aa55",
+      "sourceName": "contracts/CarbonMarketplace.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "CarbonMarketplace",
+        "IERC20Carbon"
+      ]
+    }
+  }
+}
